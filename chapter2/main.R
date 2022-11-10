@@ -91,3 +91,17 @@ qqnorm(churn$non_zero_international_minutes,
 qqline(churn$Intl.Mins,
        col="blue",
        datax=TRUE)
+
+
+zscore_night_mins <- ((churn$Night.Mins-mean(churn$Night.Mins))/sd(churn$Night.Mins))
+zscore_night_mins
+par(mfrow=c(1, 1))
+hist(zscore_night_mins,
+     breaks=10,
+     col="blue",
+     border="black",
+     xlim = c(-6, 6),
+     xlab="Z-standardized night call minutes",
+     ylab="Customer count",
+     main="Histogram of night call minutes")
+box(which="plot", lty="solid", col="black")
